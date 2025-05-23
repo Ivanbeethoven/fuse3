@@ -49,7 +49,6 @@ mod errno;
 mod helper;
 mod mount_options;
 pub mod notify;
-pub mod path;
 pub mod raw;
 
 /// Filesystem Inode.

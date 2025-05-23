@@ -3834,7 +3834,7 @@ impl<FS: Filesystem + Send + Sync + 'static> Session<FS> {
         spawn(debug_span!("fuse_batch_forget"), async move {
             let inodes = forgets
                 .into_iter()
-                .map(|forget_one| forget_one.nodeid)
+                .map(|forget_one| (forget_one.nodeid,forget_one._nlookup))
                 .collect::<Vec<_>>();
 
             debug!("batch_forget unique {} inodes {:?}", request.unique, inodes);
